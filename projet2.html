@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Projets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #27348b, #82368c);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: calc(60px + env(safe-area-inset-top));
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #27348b, #82368c);
+      opacity: 0.95;
+      z-index: 1000;
+      padding: calc(10px + env(safe-area-inset-top)) 30px 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      margin: 0;
+      height: calc(60px + env(safe-area-inset-top));
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #4caf50;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 40px 40px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 20px 0 20px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 25px;
+      justify-items: center;
+      flex: 1;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      height: 220px;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card-background {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .card-category {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #fff;
+      backdrop-filter: blur(4px);
+      transition: filter 0.5s ease;
+    }
+
+    .card:hover .card-background {
+      transform: scale(1.1);
+    }
+
+    .card-grid:hover > .card:not(:hover) {
+      transform: scale(0.94);
+    }
+
+    .card-grid:hover > .card:not(:hover) .card-background,
+    .card-grid:hover > .card:not(:hover) .card-category {
+      filter: brightness(0.5) saturate(0) blur(5px);
+    }
+
+    @media (max-width: 1200px) {
+      .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card {
+        max-width: 90%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="img/logoamblanc.svg" alt="Logo" style="height:60px; width:auto;" />
+  </div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="apropos.html">À propos</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Projets</h1>
+  <div class="card-grid">
+    <a href="portfolio1.html" class="card">
+      <div class="card-background" style="background-image: url('img/photoanaglyphe.jpg');"></div>
+      <div class="card-category">Flyer cinéma en anaglyphe</div>
+    </a>
+    <a href="portfolio2.html" class="card">
+      <div class="card-background" style="background-image: url('img/uno/mockup4.jpg');"></div>
+      <div class="card-category">Refonte du jeu UNO</div>
+    </a>
+    <a href="portfolio3.html" class="card">
+      <div class="card-background" style="background-image: url('img/pirate/pirate1.png');"></div>
+      <div class="card-category">Salle pirate</div>
+    </a>
+    <a href="portfolio4.html" class="card">
+      <div class="card-background" style="background: none; padding: 0;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+          <source src="img/barbebleue/animatiquebarbe.mp4" type="video/mp4" />
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+      </div>
+      <div class="card-category">Animatique Barbe Bleue</div>
+    </a>
+    <a href="portfolio5.html" class="card">
+      <div class="card-background" style="background-image: url('https://images.unsplash.com/photo-1518081461903-7aa3b2dba4f3?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="card-category">Projet 5</div>
+    </a>
+    <div class="card">
+      <div class="card-background" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="card-category">Projet 6</div>
+    </div>
+    <a href="portfolio7.html" class="card">
+      <div class="card-background" style="background-image: url('img/lampepoche/lampetexture.png');"></div>
+      <div class="card-category">Exercice texture</div>
+    </a>
+    <div class="card">
+      <div class="card-background" style="background-image: url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="card-category">Projet 8</div>
+    </div>
+    <div class="card">
+      <div class="card-background" style="background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="card-category">Projet 9</div>
+    </div>
+    <div class="card">
+      <div class="card-background" style="background-image: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="card-category">Projet 10</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Mon Portfolio — Contact : exemple@mail.com
+</footer>
+
+</body>
+</html>
